@@ -1,22 +1,17 @@
-<script lang="ts">
+<script>
 	import * as Fluent from "fluent-svelte";
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	
-	interface PageLink {
-		name: string;
-		path: string;
-	}
 
 	// Default pages with their display names and paths
-	export let pages: PageLink[] = [
+	export let pages = [
 		{ name: 'Home', path: '/' },
 		{ name: 'Plans', path: '/plans' },
 		{ name: 'Contact', path: '/contact' }
 	];
 
 	// Function to check if a path is the current page
-	function isCurrentPath(path: string): boolean {
+	function isCurrentPath(path) {
 		const currentPath = $page.url.pathname;
 		return currentPath === path || 
 		       (path !== '/' && currentPath.startsWith(path) && 
