@@ -1,5 +1,12 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@sveltejs/vercel-adapter",
+      "config": {}
+    }
+  ],
   "routes": [
     {
       "src": "/_app/immutable/(.*)",
@@ -10,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/"
     }
   ]
 }
