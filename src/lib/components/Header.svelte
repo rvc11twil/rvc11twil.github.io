@@ -50,7 +50,7 @@
 	{#each pages as page}
 		<Fluent.Button 
 			href="{base}{page.path}" 
-			variant={isCurrentPath(page.path) ? 'default' : 'hyperlink'}
+			variant={isCurrentPath(page.path) ? '' : 'hyperlink'}
 			style="margin-right: 14px;"
 		>
 			{page.name}
