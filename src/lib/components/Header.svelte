@@ -1,5 +1,27 @@
-<script>
+<script lang="ts">
 	import * as Fluent from "fluent-svelte";
+	import { page } from '$app/stores';
+	import { base } from '$app/paths';
+	
+	interface PageLink {
+		name: string;
+		path: string;
+	}
+
+	// Default pages with their display names and paths
+	export let pages: PageLink[] = [
+		{ name: 'Home', path: '/' },
+		{ name: 'Plans', path: '/plans' },
+		{ name: 'Contact', path: '/contact' }
+	];
+
+	// Function to check if a path is the current page
+	function isCurrentPath(path: string): boolean {
+		const currentPath = $page.url.pathname;
+		return currentPath === path || 
+		       (path !== '/' && currentPath.startsWith(path) && 
+		        (currentPath === path || currentPath.startsWith(`${path}/`)));
+	}
 </script>
 
 <style>
@@ -29,8 +51,14 @@
 </style>
 
 <nav>
-	<a href="/" class="logo"><img src="/favicon.png" alt="rvc11's pfp"></a>
-	<Fluent.Button href="/" style="margin-right: 14px;">Home</Fluent.Button>
-	<Fluent.Button href="/plans" style="margin-right: 14px;" variant="hyperlink">Plans</Fluent.Button>
-	<Fluent.Button href="/contact" variant="hyperlink">Contact me</Fluent.Button>
+	<a href="{base}/" class="logo"><img src="{base}/pfp.png" alt="rvc11's pfp"></a>
+	{#each pages as page}
+		<Fluent.Button 
+			href="{base}{page.path}" 
+			variant={isCurrentPath(page.path) ? 'default' : 'hyperlink'}
+			style="margin-right: 14px;"
+		>
+			{page.name}
+		</Fluent.Button>
+	{/each}
 </nav>
