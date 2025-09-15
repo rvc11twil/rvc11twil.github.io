@@ -92,7 +92,7 @@
 		<p>You can contact me on these:</p>
         	<Fluent.Button onClick="window.open('https://twitter.com/PrelevatedIns', '_blank')">Twitter</Fluent.Button>
 		<Fluent.Button onClick="window.open('mailto:membermadde.insiddev25120@hotmail.com', '_blank')">Hotmail</Fluent.Button>
-		<Fluent.Button onClick="window.open('https://github.com/redvelvetcake11', '_blank')">GitHub</Fluent.Button>
+		<Fluent.Button onClick="window.open('https://github.com/rvc11twil', '_blank')">GitHub</Fluent.Button>
 		<Fluent.Button onClick="window.open('https://app.revolt.chat/swzkRmn0', '_blank')">Revolt</Fluent.Button>
 	</main>
 	<Footer />
