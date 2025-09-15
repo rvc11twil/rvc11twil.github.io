@@ -1,6 +1,8 @@
 <script>
 	import * as Fluent from "fluent-svelte";
 	import "fluent-svelte/theme.css";
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <style>
@@ -83,11 +85,7 @@
 </style>
 
 <div>
-	<nav>
-		<a href="/" class="logo"><img src="/favicon.png" alt="rvc11's pfp"></a>		<Fluent.Button href="/" style="margin-right: 14px;" variant="hyperlink">Home</Fluent.Button>
-		<Fluent.Button href="/plans" style="margin-right: 14px;">Plans</Fluent.Button>
-		<Fluent.Button href="/contact" variant="hyperlink">Contact me</Fluent.Button>
-	</nav>
+	<Header />
 	<main>
 		<h1>Plans</h1>
 		<ul>
@@ -96,11 +94,5 @@
 			<Fluent.Checkbox disabled>Making Amethyst and Aurora</Fluent.Checkbox>
 		</ul>
 	</main>
-	<footer>
-		<h5 style="margin: 0px; margin-top: 10px">Powered by:</h5>
-		<Fluent.Button href="https://kit.svelte.dev" variant="hyperlink" style="margin-top: 10px; margin-bottom: 10px">SvelteKit</Fluent.Button>
-		<Fluent.Button href="https://fluent-svelte.vercel.app/" variant="hyperlink" style="margin-bottom: 10px">Fluent Svelte</Fluent.Button>
-		<h5 style="margin: 0px; margin-bottom: 10px">Made and contributed by:</h5>
-                <Fluent.Button href="/" variant="hyperlink" style="margin-bottom: 10px">RedVelvetCake11</Fluent.Button>
-	</footer>
+	<Footer />
 </div>

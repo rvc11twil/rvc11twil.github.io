@@ -2,6 +2,8 @@
 	import * as Fluent from "fluent-svelte";
 	import "fluent-svelte/theme.css";
 	import { base } from '$app/paths';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <style>
@@ -84,12 +86,7 @@
 </style>
 
 <div>
-	<nav>
-		<a href="/" class="logo"><img src="/favicon.png" alt="rvc11's pfp"></a>
-		<Fluent.Button href="{base}/" style="margin-right: 14px;" variant="hyperlink">Home</Fluent.Button>
-		<Fluent.Button href="{base}/plans" style="margin-right: 14px;" variant="hyperlink">Plans</Fluent.Button>
-		<Fluent.Button href="{base}/contact">Contact me</Fluent.Button>
-	</nav>
+	<Header />
 	<main>
 		<h1>Contact me</h1>
 		<p>You can contact me on these:</p>
@@ -98,11 +95,5 @@
 		<Fluent.Button onClick="window.open('https://github.com/redvelvetcake11', '_blank')">GitHub</Fluent.Button>
 		<Fluent.Button onClick="window.open('https://app.revolt.chat/swzkRmn0', '_blank')">Revolt</Fluent.Button>
 	</main>
-	<footer>
-		<h5 style="margin: 0px; margin-top: 10px">Powered by:</h5>
-		<Fluent.Button href="https://kit.svelte.dev" variant="hyperlink" style="margin-top: 10px; margin-bottom: 10px">SvelteKit</Fluent.Button>
-		<Fluent.Button href="https://fluent-svelte.vercel.app/" variant="hyperlink" style="margin-bottom: 10px">Fluent Svelte</Fluent.Button>
-		<h5 style="margin: 0px; margin-bottom: 10px">Made and contributed by:</h5>
-                <Fluent.Button href="/" variant="hyperlink" style="margin-bottom: 10px">RedVelvetCake11</Fluent.Button>
-	</footer>
+	<Footer />
 </div>
