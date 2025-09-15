@@ -1,27 +1,22 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-static';
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
 	kit: {
 		adapter: adapter({
-			// Enable SSR for all pages
-			ssr: true,
-			// Enable edge functions for better performance
-			edge: false,
-			// Enable external HTTP server for handling server-side requests
-			external: [],
+			// Fallback for client-side routing
+			fallback: 'index.html',
+			// Output directory for the static site
+			pages: 'build',
+			assets: 'build',
 			// Enable pre-rendering for better performance
-			prerender: {
-				handleHttpError: 'warn',
-				handleMissingId: 'warn',
-				handleFallback: 'warn'
-			}
+			precompress: true
 		}),
 		// Ensure client-side routing works with Vercel
 		alias: {
-			'$lib': './src/lib',
-			'$app/stores': '@sveltejs/kit/src/runtime/app/stores',
-			'$app/navigation': '@sveltejs/kit/src/runtime/app/navigation',
-			'$app/forms': '@sveltejs/kit/src/runtime/app/forms'
+			'$lib': './src/lib'
 		}
 	}
 };
+
+export default config;
