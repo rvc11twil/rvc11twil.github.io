@@ -48,12 +48,21 @@
 <nav>
 	<a href="{base}/" class="logo"><img src="{base}/pfp.png" alt="rvc11's pfp"></a>
 	{#each pages as page}
-		<Fluent.Button 
-			href="{base}{page.path}" 
-			variant={isCurrentPath(page.path) ? '' : 'hyperlink'}
+		{#if !isCurrentPath(page.path)}
+		<Fluent.Button
+			href="{base}{page.path}"
+			variant="hyperlink"
 			style="margin-right: 14px;"
 		>
 			{page.name}
 		</Fluent.Button>
+		{:else}
+		<Fluent.Button
+			href="{base}{page.path}"
+			style="margin-right: 14px;"
+		>
+			{page.name}
+		</Fluent.Button>
+		{/if}
 	{/each}
 </nav>
